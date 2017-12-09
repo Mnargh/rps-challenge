@@ -3,6 +3,10 @@
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
+require './app'
+# require './spec/features/web_helpers'
+require 'capybara'
+require 'rspec'
 
 ENV['RACK_ENV'] = 'test'
 

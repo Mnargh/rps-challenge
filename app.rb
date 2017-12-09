@@ -1,10 +1,15 @@
 require 'sinatra'
 
 class RPS < Sinatra::Base
-
+  enable :sessions
+  
   get '/' do
-    "Welcome to the home page"
+    erb :name_entry
   end
 
+  post '/game' do
+    @player_name = params[:Player]
+    erb :game_page
+  end
   run!  if app_file == $0
 end
