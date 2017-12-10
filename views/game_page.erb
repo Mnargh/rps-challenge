@@ -1,11 +1,7 @@
 <h2> <%= "#{@player.name} vs the computer!" %></h2>
 
-<form action = "/result" method = get>
-  <input type = "submit" value = "Rock!" name = "rock">
-</form>
-<form action = "/result" method = get>
-  <input type = "submit" value = "Scissors!" name = "scissors">
-</form>
-<form action = "/result" method = get>
-  <input type = "submit" value = "Paper!" name = "paper">
+<form action = "/result" method = post>
+  <input type = "submit" value = "Rock!" name = "choice">
+  <input type = "submit" value = "Scissors!" name = "choice">
+  <input type = "submit" value = "Paper!" name = "choice">
 </form>

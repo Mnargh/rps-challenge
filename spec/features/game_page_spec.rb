@@ -14,4 +14,28 @@ feature "Main Game Page" do
     click_button "Paper!"
     expect(page).to have_content "You chose Paper"
   end
+  scenario "Computer can choose Rock" do
+    srand(2)
+    enter_name_and_play
+    click_button "Rock!"
+    expect(page).to have_content "The computer chose Rock!"
+  end
+  scenario "Computer can choose Scissors" do
+    srand(3)
+    enter_name_and_play
+    click_button "Rock!"
+    expect(page).to have_content "The computer chose Scissors!"
+  end
+  scenario "Computer can choose Paper" do
+    srand(1)
+    enter_name_and_play
+    click_button "Rock!"
+    expect(page).to have_content "The computer chose Paper!"
+  end
+  scenario "Computer can win" do
+    srand (1)
+    enter_name_and_play
+    click_button "Rock!"
+    expect(page).to have_content "The computer wins!"
+  end
 end

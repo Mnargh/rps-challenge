@@ -14,9 +14,7 @@ class Player
     @player
   end
 
-  def choose(item)
-    @choice = item
-  end
+
   # def choose(item)
   #   @choice = item
   # end

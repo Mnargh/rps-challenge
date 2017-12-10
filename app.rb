@@ -9,16 +9,16 @@ class RPS < Sinatra::Base
   end
 
   post '/game' do
-    p params[:Player]
     @player = Player.create_new_player(params[:Player])
     erb :game_page
   end
 
-  get '/result' do
+  post '/result' do
     @player = Player.instance_of_player
-    @player.choice = "Rock" if params[:rock] != nil
-    @player.choice = "Scissors" if params[:scissors] != nil
-    @player.choice = "Paper" if params[:paper] != nil
+    @game = Game.create_new_game
+    @player.choice = params[:choice] if params[:choice] != nil
+    #need to add def choice method to eliminate these
+    @game.winner?
     erb :result_page
   end
 
