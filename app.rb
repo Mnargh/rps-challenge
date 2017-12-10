@@ -1,4 +1,5 @@
 require 'sinatra'
+require './lib/player'
 
 class RPS < Sinatra::Base
   enable :sessions
@@ -8,14 +9,16 @@ class RPS < Sinatra::Base
   end
 
   post '/game' do
-    @player_name = params[:Player]
+    p params[:Player]
+    @player = Player.create_new_player(params[:Player])
     erb :game_page
   end
 
   get '/result' do
-    @player_choice = params[:rock] if params[:rock] != nil
-    @player_choice = params[:scissors] if params[:scissors] != nil
-    @player_choice = params[:paper] if params[:paper] != nil
+    @player = Player.instance_of_player
+    @player.choice = "Rock" if params[:rock] != nil
+    @player.choice = "Scissors" if params[:scissors] != nil
+    @player.choice = "Paper" if params[:paper] != nil
     erb :result_page
   end
 
