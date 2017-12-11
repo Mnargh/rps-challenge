@@ -4,7 +4,7 @@ class Game
   attr_accessor :comp_choice, :who_won
 
   def initialize
-    @possible_choices = ["Rock", "Paper", "Scissors"]
+    @possible_choices = ["Rock!", "Paper!", "Scissors!"]
     @comp_choice = @possible_choices.sample
     @who_won = nil
   end
@@ -17,8 +17,12 @@ class Game
     @game
   end
 
-  def winner?( x = @player.choice)
-    case (@possible_choices.index(@comp_choice) - @possible_choices.index(x))% 3
+  def winner?( x )
+    # p "test"
+    # p @player
+    # p Player.instance_of_player
+    # p @player.choice
+    case ((@possible_choices.index(@comp_choice)) - (@possible_choices.index(x)) )% 3
       when 0
         @who_won = "Tie"
       when 1

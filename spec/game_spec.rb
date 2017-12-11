@@ -20,6 +20,4 @@ describe Game do
       expect(subject.who_won).to eq ("Tie")
     end
   end
-
-
 end
